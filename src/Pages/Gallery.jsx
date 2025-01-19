@@ -1,49 +1,30 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import ButtonSend from "../components/ButtonSend"
 import ButtonRequest from "../components/ButtonRequest"
-import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage"
 import Modal from "@mui/material/Modal"
 import { Box, IconButton } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
-import { useSpring, animated } from "@react-spring/web" // Import the necessary components
+import { useSpring, animated } from "@react-spring/web"
 
 const Carousel = () => {
-	const [images, setImages] = useState([])
+	// Menggunakan gambar lokal
+	const [images] = useState([
+		"/gallery/image1.jpg", // Ganti dengan path gambar lokal Anda
+		"/gallery/image2.jpg",
+		"/gallery/image3.jpg",
+		"/gallery/image4.jpg",
+		"/gallery/image5.jpg",
+	])
 	const [open, setOpen] = useState(false)
 	const [selectedImage, setSelectedImage] = useState(null)
 
 	const modalFade = useSpring({
 		opacity: open ? 1 : 0,
-		config: { duration: 300 }, // Adjust the duration as needed
+		config: { duration: 300 },
 	})
-
-	// Fungsi untuk mengambil daftar gambar dari Firebase Storage
-	const fetchImagesFromFirebase = async () => {
-		try {
-			const storage = getStorage() // Mendapatkan referensi Firebase Storage
-			const storageRef = ref(storage, "GambarAman/") // Menggunakan ref dengan storage
-
-			const imagesList = await listAll(storageRef) // Menggunakan listAll untuk mendapatkan daftar gambar
-
-			const imageURLs = await Promise.all(
-				imagesList.items.map(async (item) => {
-					const url = await getDownloadURL(item) // Menggunakan getDownloadURL untuk mendapatkan URL gambar
-					return url
-				}),
-			)
-
-			setImages(imageURLs)
-		} catch (error) {
-			console.error("Error fetching images from Firebase Storage:", error)
-		}
-	}
-
-	useEffect(() => {
-		fetchImagesFromFirebase()
-	}, [])
 
 	const settings = {
 		centerMode: true,
