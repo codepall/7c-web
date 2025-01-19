@@ -330,7 +330,7 @@ const StrukturKelas = () => {
 						<img src="LineVertikal3.svg" alt="" className="lg:hidden" />
 						<img src="Circle.svg" alt="" className="relative top-[-0.7rem]" />
 						<div className="relative bottom-3">
-							<BorderStruktur Jabatan="Keindahan" Nama="Dea" Width="120px" />
+							<BorderStruktur Jabatan="Kerindangan" Nama="Shelyn" Width="120px" />
 						</div>
 					</div>
 				</div>
