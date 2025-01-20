@@ -5,7 +5,7 @@ function Chat() {
   const [messages, setMessages] = useState([]);
   const messagesEndRef = useRef(null);
 
-  const API_URL = "https://example.com/chat-data.json"; // URL file JSON Anda
+  const API_URL = "https://example.com/chat-data.json"; // Ganti dengan URL file JSON Anda
 
   // Mengambil pesan dari file JSON
   useEffect(() => {
@@ -35,12 +35,14 @@ function Chat() {
         timestamp: new Date().toISOString(),
       };
 
+      // Menambahkan pesan baru ke daftar lokal
       const updatedMessages = [...messages, newMessage];
       setMessages(updatedMessages);
 
+      // Mengirim pesan baru ke server
       try {
         await fetch(API_URL, {
-          method: "POST", // Backend server diperlukan untuk menangani POST
+          method: "POST", // Anda memerlukan backend untuk menangani POST
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(updatedMessages),
         });
@@ -48,7 +50,7 @@ function Chat() {
         console.error("Gagal mengirim pesan:", error);
       }
 
-      setMessage("");
+      setMessage(""); // Mengosongkan input
       scrollToBottom();
     }
   };
@@ -61,49 +63,117 @@ function Chat() {
   };
 
   return (
-    <div className="bg-gray-900 text-white p-5 rounded-md shadow-md" id="ChatAnonim">
-      <div className="text-center text-4xl font-semibold mb-5" id="Glow">
+    <div className="" id="ChatAnonim" style={{ fontFamily: "Arial, sans-serif" }}>
+      <div
+        className="text-center text-4xl font-semibold"
+        id="Glow"
+        style={{
+          color: "#fff",
+          textShadow: "0 0 10px rgba(255,255,255,0.8)",
+        }}
+      >
         Text Anonim
       </div>
 
       <div
-        className="mt-5 border border-gray-700 rounded-md p-4 overflow-y-auto"
+        className="mt-5"
         id="KotakPesan"
-        style={{ maxHeight: "300px" }}
+        style={{
+          overflowY: "auto",
+          height: "400px",
+          border: "1px solid #ddd",
+          borderRadius: "5px",
+          padding: "15px",
+          background: "rgba(255,255,255,0.1)",
+          backdropFilter: "blur(10px)",
+          boxShadow: "0 0 15px rgba(0,0,0,0.3)",
+        }}
       >
         {messages.map((msg, index) => (
-          <div key={index} className="flex items-start text-sm py-2">
+          <div
+            key={index}
+            className="flex items-start text-sm py-[1%]"
+            style={{
+              display: "flex",
+              alignItems: "flex-start",
+              marginBottom: "15px",
+            }}
+          >
             <img
               src="/AnonimUser.png"
               alt="User Profile"
-              className="h-7 w-7 mr-2 rounded-full border border-gray-600"
+              className="h-7 w-7 mr-2"
+              style={{
+                width: "28px",
+                height: "28px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                marginRight: "10px",
+              }}
             />
-            <div className="bg-gray-800 p-2 rounded-lg">
-              <div>{msg.message}</div>
-              <small className="text-gray-500 block mt-1">
-                {new Date(msg.timestamp).toLocaleString()}
-              </small>
+            <div
+              style={{
+                background: "rgba(0,0,0,0.8)",
+                padding: "10px 15px",
+                borderRadius: "15px",
+                color: "#fff",
+                maxWidth: "80%",
+                wordWrap: "break-word",
+              }}
+            >
+              {msg.message}
             </div>
           </div>
         ))}
         <div ref={messagesEndRef}></div>
       </div>
 
-      <div className="flex items-center mt-5 border border-gray-700 rounded-md p-2" id="InputChat">
+      <div
+        id="InputChat"
+        className="flex items-center mt-5"
+        style={{
+          marginTop: "10px",
+          display: "flex",
+          alignItems: "center",
+          padding: "10px 0",
+          borderTop: "1px solid rgba(255,255,255,0.2)",
+        }}
+      >
         <input
-          className="bg-transparent flex-grow pr-4 placeholder-gray-400 focus:outline-none"
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyPress={handleKeyPress}
           placeholder="Ketik pesan Anda..."
           maxLength={60}
+          style={{
+            flexGrow: 1,
+            padding: "10px",
+            borderRadius: "5px",
+            border: "none",
+            outline: "none",
+            background: "rgba(255,255,255,0.1)",
+            color: "#fff",
+            backdropFilter: "blur(5px)",
+            marginRight: "10px",
+          }}
         />
         <button
           onClick={sendMessage}
-          className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          style={{
+            padding: "10px 15px",
+            background: "rgba(255,255,255,0.2)",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            color: "#fff",
+          }}
         >
-          Kirim
+          <img
+            src="/paper-plane.png"
+            alt="Kirim"
+            style={{ width: "20px", height: "20px" }}
+          />
         </button>
       </div>
     </div>
