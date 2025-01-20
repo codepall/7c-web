@@ -15,11 +15,10 @@ Apa yang dapat Anda temukan di web ini:
 - Structure And Schedule: Memberikan informasi rinci tentang struktur kelas dan jadwal yang tersedia.
 
 Project ini di buat oleh :
-- Eki
-- Dafy
+- Naufal
 - inspirasi desain : https://www.instagram.com/p/ColkoEmyMOK/?igsh=MW9vaXIxdWdnY2kzcw==
 
-Kunjungi situs web kami di https://xitkj3.vercel.app/ untuk mendapatkan informasi lebih lanjut. Kami sangat menghargai apabila Anda ingin menggunakan proyek ini, harap sertakan kredit kami dalam penggunaan Anda. Terima kasih! 🙏
+Kunjungi situs web kami di https://7c-web.vercel.app/ untuk mendapatkan informasi lebih lanjut. Kami sangat menghargai apabila Anda ingin menggunakan proyek ini, harap sertakan kredit kami dalam penggunaan Anda. Terima kasih! 🙏
 
 # Tutorial Running Webnya 
 Note: ini merupakan cara saya, jika ada yang lebih mudah dan efisien silahkan
