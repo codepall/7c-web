@@ -26,7 +26,7 @@ const Footer = () => {
 								</li>
 								<li>
 									<a href="https://www.instagram.com/7c_smepda/?hl=id" class="hover:underline">
-										7C
+										 
 									</a>
 								</li>
 							</ul>
