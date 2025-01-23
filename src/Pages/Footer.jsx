@@ -25,8 +25,8 @@ const Footer = () => {
 									</a>
 								</li>
 								<li>
-									<a href="https://www.instagram.com/?hl=id" class="hover:underline">
-										IG
+									<a href="https://www.instagram.com/7c_smepda/?hl=id" class="hover:underline">
+										7C
 									</a>
 								</li>
 							</ul>
@@ -60,7 +60,7 @@ const Footer = () => {
 				<div class="sm:flex sm:items-center sm:justify-between">
 					<div class="flex mt-4 justify-center sm:mt-0">
 						<p className="text-[0.7rem] text-white opacity-70">
-							© {new Date().getFullYear()} Kelas 7C | Di Kelola Oleh Siswa 7C
+							© {new Date().getFullYear()} Kelas 7C | Di Kelola Oleh Siswa Kelas 7C
 						</p>
 					</div>
 				</div>
