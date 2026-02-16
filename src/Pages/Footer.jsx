@@ -24,11 +24,6 @@ const Footer = () => {
 										Naufal 
 									</a>
 								</li>
-								<li>
-									<a href="https://www.instagram.com/7c_smepda/?hl=id" class="hover:underline">
-										 
-									</a>
-								</li>
 							</ul>
 						</div>
 						<div className="">
@@ -37,11 +32,6 @@ const Footer = () => {
 								<li class="mb-2">
 									<a href="https://www.instagram.com/7c_smepda/?hl=id" class="hover:underline ">
 										Instagram
-									</a>
-								</li>
-								<li>
-									<a href="https://www.youtube.com/" class="hover:underline">
-										Youtube
 									</a>
 								</li>
 							</ul>
